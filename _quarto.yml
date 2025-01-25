@@ -1,0 +1,18 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Mapa de uso agropecuario y bosques de Costa Rica"
+  chapters:
+    - index.qmd
+  navbar:
+    right:
+      - icon: github
+        href: "https://github.com/mapa-agropecuario-bosques/mapa-agropecuario-bosques.github.io"
+
+format:
+  html:
+    lang: es
+    theme: cosmo
+    toc-expand: 5

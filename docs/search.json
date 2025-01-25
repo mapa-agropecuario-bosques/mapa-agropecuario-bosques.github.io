@@ -1,0 +1,12 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Mapa de uso agropecuario y bosques de Costa Rica",
+    "section": "",
+    "text": "Este sitio web presenta la documentación y el código fuente utilizados para generar mapas de uso agropecuario y bosques de Costa Rica. El correspondiente al año 2020 se muestra en la Figura 1.\n\n\n\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.\n\n\n\nEl mapa es el producto de la combinación de capas vectoriales y raster de cobertura forestal, cultivos, áreas silvestres protegidas y otras.\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Presentación</span>"
+    ]
+  }
+]
