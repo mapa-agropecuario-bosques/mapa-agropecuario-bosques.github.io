@@ -4,7 +4,7 @@ format:
     toc: false
 ---
 
-# Introducción {.unnumbered}
+# Introducción general {.unnumbered}
 
 Este sitio web presenta la documentación y el código fuente utilizados para generar mapas de uso agropecuario y bosques de Costa Rica. El correspondiente al año 2020 se muestra en la @fig-mapa-uso-agropecuario-bosques-2020.
 
