@@ -44,6 +44,8 @@ datos <- data.frame(
 )
 ```
 
+La siguiente es la lista de capas geoespaciales que se utilizaron para confeccionar el mapa.
+
 ```{r}
 #| label: despliegue-datos
 #| echo: false
@@ -57,4 +59,3 @@ datos |>
               language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
             ))
 ```
-

@@ -12,12 +12,12 @@
   {
     "objectID": "contenido/2020/01-datos.html",
     "href": "contenido/2020/01-datos.html",
-    "title": "Fuentes de datos",
+    "title": "Datos",
     "section": "",
-    "text": "Código\nlibrary(DT)\n\n\n\ndatos &lt;- data.frame(\n  Orden = c(1),\n  Capa = c(\"Sin información\"),\n  Fuente = c(\"Proyecto REDD+\")\n)\n\n\ndatos |&gt; \n  datatable(options = list(\n    rownames = FALSE,\n    pageLength = 5,\n    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')\n  ))",
+    "text": "La siguiente es la lista de capas geoespaciales que se utilizaron para confeccionar el mapa.",
     "crumbs": [
       "2020",
-      "Fuentes de datos"
+      "Datos"
     ]
   },
   {
