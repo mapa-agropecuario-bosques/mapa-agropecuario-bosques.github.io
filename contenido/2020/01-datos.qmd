@@ -5,3 +5,41 @@ format:
 ---
 
 # Fuentes de datos {.unnumbered}
+
+```{r}
+#| label: carga-paquetes
+#| echo: false
+#| message: false
+#| warning: false
+
+library(DT)
+```
+
+```{r}
+#| label: definicion-fuentes-datos
+#| echo: false
+#| message: false
+#| warning: false
+
+datos <- data.frame(
+  Orden = c(1, 2, 3, 4),
+  Capa = c("Red vial", "Áreas Silvestres Protegidas", "Humedales", "Patrimonio Natural del Estado"),
+  Tipo = c("Vectorial", "Vectorial", "Vectorial", "Vectorial"),
+  Fuente = c("MOPT", "SINAC", "SINAC", "SINAC")
+)
+```
+
+```{r}
+#| label: despliegue-datos
+#| echo: false
+#| message: false
+#| warning: false
+
+datos |> 
+  datatable(options = list(
+    rownames = FALSE,
+    pageLength = 5,
+    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
+  ))
+```
+

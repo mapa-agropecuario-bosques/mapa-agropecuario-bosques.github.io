@@ -4,20 +4,20 @@
     "href": "index.html",
     "title": "Mapa de uso agropecuario y bosques",
     "section": "",
-    "text": "Introducción\nEste sitio web presenta la documentación y el código fuente utilizados para generar mapas de uso agropecuario y bosques de Costa Rica. El correspondiente al año 2020 se muestra en la Figura 1.\n\n\n\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.\n\n\n\nEl mapa es el producto de la combinación de capas vectoriales y raster de cobertura forestal, cultivos, áreas silvestres protegidas y otras.\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.",
+    "text": "Introducción general\nEste sitio web presenta la documentación y el código fuente utilizados para generar mapas de uso agropecuario y bosques de Costa Rica. El correspondiente al año 2020 se muestra en la Figura 1.\n\n\n\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.\n\n\n\nEl mapa es el producto de la combinación de capas vectoriales y raster de cobertura forestal, cultivos, áreas silvestres protegidas y otras.\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.",
     "crumbs": [
-      "Introducción"
+      "Introducción general"
     ]
   },
   {
     "objectID": "contenido/2020/01-datos.html",
     "href": "contenido/2020/01-datos.html",
-    "title": "Presentación",
+    "title": "Fuentes de datos",
     "section": "",
-    "text": "Este sitio web y su correspondiente repositorio en GitHub contienen el código fuente utilizado para generar un mapa base de uso agropecuario y bosques de Costa Rica correspondiente al año 2020. El mapa se muestra en la Figura 1.\n\n\n\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.\n\n\n\nEl mapa es el producto de la combinación de capas vectoriales y raster de cobertura forestal, cultivos, áreas silvestres protegidas y otras.\n\n\n\nFigura 1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.",
+    "text": "Código\nlibrary(DT)\n\n\n\ndatos &lt;- data.frame(\n  Orden = c(1),\n  Capa = c(\"Sin información\"),\n  Fuente = c(\"Proyecto REDD+\")\n)\n\n\ndatos |&gt; \n  datatable(options = list(\n    rownames = FALSE,\n    pageLength = 5,\n    language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')\n  ))",
     "crumbs": [
-      "Año 2020",
-      "Presentación"
+      "2020",
+      "Fuentes de datos"
     ]
   },
   {
