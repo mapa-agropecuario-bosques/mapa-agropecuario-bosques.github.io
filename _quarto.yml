@@ -10,6 +10,7 @@ book:
       chapters:
         - contenido/2020/00-index.qmd
         - contenido/2020/01-datos.qmd
+        - contenido/2020/02-procesamiento.qmd
 
 format:
   html:
