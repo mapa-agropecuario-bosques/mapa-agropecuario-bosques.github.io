@@ -1,0 +1,76 @@
+# Procesamiento {.unnumbered}
+
+```{r}
+#| label: carga-paquetes
+#| echo: false
+#| message: false
+#| warning: false
+
+library(DT)
+```
+
+## Descripción general
+
+Los datos de entrada se procesaron en un flujo de trabajo de seis pasos, el cual se esquematiza en la @fig-procesamiento.
+
+```{mermaid}
+%%| label: fig-procesamiento
+%%| fig-cap: Procesamiento de datos.
+
+flowchart TB
+    subgraph Procesos_1_2 [ ]
+      direction LR
+      A("1. Remuestreo de capas raster")
+      B("2. Rasterización de capas vectoriales")
+    end
+
+    style Procesos_1_2 fill:none,stroke:none
+
+    A --> C["3. Combinación de capas remuestreadas y rasterizadas"]
+    B --> C
+    C --> D["4. Reclasificación de la capa combinada"]
+    D --> E["5. Compresión de la capa reclasificada"]
+    E --> F["6. Generación de estadísticas y visualizaciones"]
+```
+
+Este flujo de trabajo se implementó a través de un conjunto de programas desarrollados en [R](https://www.r-project.org/), un lenguaje de programación orientado al análisis de datos y con amplias capacidades de procesamiento geoespacial. El código fuente de estos programas se encuentra en [https://github.com/mapa-agropecuario-bosques/2020/tree/main/programas](https://github.com/mapa-agropecuario-bosques/2020/tree/main/programas).
+
+Los programas se ejecutaron en un contenedor [Docker](https://www.docker.com/). El uso de contenedores facilita el desarrollo, la implementación y el mantenimiento de aplicaciones. Entre sus ventajas, pueden mencionarse:
+
+- **Portabilidad**: Los contenedores incluyen todas las dependencias necesarias (bibliotecas, configuraciones y herramientas), lo que permite que la aplicación se ejecute de manera consistente en cualquier entorno, ya sea local, en servidores o en la nube.
+
+- **Aislamiento**: Cada contenedor se ejecuta de forma independiente y aislada del sistema operativo anfitrión y de otros contenedores, evitando conflictos de dependencias o configuraciones entre aplicaciones.
+
+- **Control de versiones**: Docker permite versionar las imágenes de contenedores, lo que facilita la reversión a versiones anteriores en caso de problemas. También puedes etiquetar versiones específicas de tu aplicación para un mejor control.
+
+En general, los contenedores facilitan la [reproducibilidad](https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad) de la solución implementada: al utilizar los mismos datos y los mismos programas se obtienen los mismos resultados. El archivo [Dockerfile](https://github.com/mapa-agropecuario-bosques/2020/blob/main/Dockerfile) contiene la especificación de los paquetes de R que se necesitan, con sus respectivas versiones.
+
+Las instrucciones necesarias para el uso del contenedor Docker se incluyen en el archivo [README.md](https://github.com/mapa-agropecuario-bosques/2020/blob/main/README.md#manejo-del-contenedor-docker) del repositorio GitHub.
+
+## Flujo de trabajo
+
+### 1. Remuestreo de capas raster
+
+Este paso se aplica a las capas de entrada tipo raster para homgenizarlas en una misma cuadrícula de referencia. Así, se garantiza que todas las capas raster tengan la misma resolución y los mismos límites.
+
+**Programa**:  
+[remuestreo.R](https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/remuestreo.R)
+
+**Directorio de archivos raster de entrada**:  
+'datos/originales/raster' (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartir todos los archivos)
+
+**Directorio de archivos remuestreados**:  
+[https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados](https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados)
+
+### 2. Rasterización de capas vectoriales
+
+### 3. Combinación de capas remuestreadas y rasterizadas
+
+### 4. Reclasificación de la capa combinada
+
+### 5. Compresión de la capa reclasificada
+
+### 6. Generación de estadísticas y visualizaciones
+
+
+
