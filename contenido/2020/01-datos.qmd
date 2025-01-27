@@ -15,6 +15,8 @@ format:
 library(DT)
 ```
 
+El mapa se elaboró a partir de un conjunto de datos de entrada contenidos en archivos geoespaciales, vectoriales y raster, los cuales se listan seguidamente.
+
 ```{r}
 #| label: definicion-fuentes-datos
 #| echo: false
@@ -22,29 +24,36 @@ library(DT)
 #| warning: false
 
 datos <- data.frame(
-  Orden = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16),
-  Capa = c(
-    "Red vial", "Áreas Silvestres Protegidas", "Humedales", "Patrimonio Natural del Estado",
-    "Caña", "Banano", "Café", "Pasto",
-    "Palma", "Piña", "Cultivos", "Páramo",
-    "Cobertura forestal", "Suelo desnudo", "Zonas urbanas", "Sin información"
-  ),
-  Tipo = c(
-    "Vectorial", "Vectorial", "Vectorial", "Vectorial",
-    "Vectorial", "Vectorial", "Vectorial", "Vectorial",
-    "Vectorial", "Vectorial", "Vectorial", "Vectorial",
-    "Vectorial", "Raster", "Raster", "Raster"
+  Archivo = c(
+    "areas-silvestres-protegidas.gpkg", "'Cobertura forestal 2021.shp'", "cultivo-cafe-2017-2018.gpkg",
+    "cultivo-cana-2020.gpkg", "cultivo-palma-2019.gpkg", "cultivo-pastos-2019.gpkg", 
+    "cultivo-pastos-2020.gpkg", "cultivo-pina-2019.gpkg", "cultivos-2017.gpkg",
+    "fincas_Bananeras.shp", "MC21_RECLASIFICADO_IPCC_9_7_2024.tif", "patrimonio-natural-estado.gpkg", 
+    "Red_Vial_Nacional.shp", "registro-nacional-humedales.gpkg"
   ),
   Fuente = c(
-    "???", "SINAC", "SINAC", "SINAC",
-    "LAICA", "MOCUPP", "ICAFE", "MOCUPP",
-    "MOCUPP", "MOCUPP", "???", "???",
-    "SINAC", "Secretaría REDD", "Secretaría REDD", "Secretaría REDD"
+    "SINAC (SNIT)", "SINAC", "ICAFE",
+    "LAICA", "MOCUPP-PRIAS (SNIT)", "MOCUPP-UCR (SNIT)",
+    "MOCUPP-UCR (SNIT)", "MOCUPP-PRIAS (SNIT)", "???",
+    "???", "FONAFIFO", "SINAC (SNIT)",
+    "???", "SINAC (SNIT)"
+  ),  
+  Tipo = c(
+    "Vectorial", "Vectorial", "Vectorial",
+    "Vectorial", "Vectorial", "Vectorial",
+    "Vectorial", "Vectorial", "Vectorial",
+    "Vectorial", "Raster", "Vectorial",
+    "Vectorial", "Vectorial"
+  ),
+  Comentarios = c(
+    "", "", "",
+    "Se generó al fusionar archivos de varias regiones", "", "",
+    "", "", "",
+    "", "Contiene varias capas (zonas urbanas, suelo desnudo, etc.)", "",
+    "", ""
   )
 )
 ```
-
-La siguiente es la lista de capas geoespaciales que se utilizaron para confeccionar el mapa.
 
 ```{r}
 #| label: despliegue-datos
@@ -55,7 +64,9 @@ La siguiente es la lista de capas geoespaciales que se utilizaron para confeccio
 datos |>
   datatable(rownames = FALSE,
             options = list(
-              pageLength = 16,
+              pageLength = 14,
               language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
             ))
 ```
+
+Algunos archivos se descargaron de servicios web publicados por diferentes instituciones y presentados en el [Sistema Naional de Información Territorial (SNIT)](https://www.snitcr.go.cr/). Otros fueron entregados directamente por las instituciones.
