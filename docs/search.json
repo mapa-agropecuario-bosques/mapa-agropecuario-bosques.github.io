@@ -14,7 +14,7 @@
     "href": "contenido/2020/01-datos.html",
     "title": "Datos",
     "section": "",
-    "text": "La siguiente es la lista de capas geoespaciales que se utilizaron para confeccionar el mapa.",
+    "text": "El mapa se elaboró a partir de un conjunto de datos de entrada contenidos en archivos geoespaciales, vectoriales y raster, los cuales se listan seguidamente.\n\n\n\n\n\n\nAlgunos archivos se descargaron de servicios web publicados por diferentes instituciones y presentados en el Sistema Naional de Información Territorial (SNIT). Otros fueron entregados directamente por las instituciones.",
     "crumbs": [
       "2020",
       "Datos"
@@ -40,6 +40,105 @@
     "crumbs": [
       "2020",
       "Introducción"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html",
+    "href": "contenido/2020/02-procesamiento.html",
+    "title": "Procesamiento",
+    "section": "",
+    "text": "Descripción general\nLos datos de entrada se procesaron en un flujo de trabajo de seis pasos, el cual se esquematiza en la Figura 1.\nflowchart TB\n    subgraph Procesos_1_2 [ ]\n      direction LR\n      A(\"1. Remuestreo de capas raster\")\n      B(\"2. Rasterización de capas vectoriales\")\n    end\n\n    style Procesos_1_2 fill:none,stroke:none\n\n    A --&gt; C[\"3. Combinación de capas remuestreadas y rasterizadas\"]\n    B --&gt; C\n    C --&gt; D[\"4. Reclasificación de la capa combinada\"]\n    D --&gt; E[\"5. Compresión de la capa reclasificada\"]\n    E --&gt; F[\"6. Generación de estadísticas y visualizaciones\"]\n\n\n\n\nFigura 1: Procesamiento de datos.\nEste flujo de trabajo se implementó a través de un conjunto de programas desarrollados en R, un lenguaje de programación orientado al análisis de datos y con amplias capacidades de procesamiento geoespacial. El código fuente de estos programas se encuentra en https://github.com/mapa-agropecuario-bosques/2020/tree/main/programas.\nLos programas se ejecutaron en un contenedor Docker. El uso de contenedores facilita el desarrollo, la implementación y el mantenimiento de aplicaciones. Entre sus ventajas, pueden mencionarse:\nEn general, los contenedores facilitan la reproducibilidad de la solución implementada: al utilizar los mismos datos y los mismos programas se obtienen los mismos resultados. El archivo Dockerfile contiene la especificación de los paquetes de R que se necesitan, con sus respectivas versiones.\nLas instrucciones necesarias para el uso del contenedor Docker se incluyen en el archivo README.md del repositorio GitHub.",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#rasterización-de-capas-vectoriales",
+    "href": "contenido/2020/02-procesamiento.html#rasterización-de-capas-vectoriales",
+    "title": "Procesamiento",
+    "section": "2. Rasterización de capas vectoriales",
+    "text": "2. Rasterización de capas vectoriales",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#combinación-de-capas-remuestreadas-y-rasterizadas",
+    "href": "contenido/2020/02-procesamiento.html#combinación-de-capas-remuestreadas-y-rasterizadas",
+    "title": "Procesamiento",
+    "section": "3. Combinación de capas remuestreadas y rasterizadas",
+    "text": "3. Combinación de capas remuestreadas y rasterizadas",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#reclasificación-de-la-capa-combinada",
+    "href": "contenido/2020/02-procesamiento.html#reclasificación-de-la-capa-combinada",
+    "title": "Procesamiento",
+    "section": "4. Reclasificación de la capa combinada",
+    "text": "4. Reclasificación de la capa combinada",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#compresión-de-la-capa-reclasificada",
+    "href": "contenido/2020/02-procesamiento.html#compresión-de-la-capa-reclasificada",
+    "title": "Procesamiento",
+    "section": "5. Compresión de la capa reclasificada",
+    "text": "5. Compresión de la capa reclasificada",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#generación-de-estadísticas",
+    "href": "contenido/2020/02-procesamiento.html#generación-de-estadísticas",
+    "title": "Procesamiento",
+    "section": "Generación de estadísticas",
+    "text": "Generación de estadísticas",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#generación-de-estadísticas-y-visualizaciones",
+    "href": "contenido/2020/02-procesamiento.html#generación-de-estadísticas-y-visualizaciones",
+    "title": "Procesamiento",
+    "section": "6. Generación de estadísticas y visualizaciones",
+    "text": "6. Generación de estadísticas y visualizaciones",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#descripción-general",
+    "href": "contenido/2020/02-procesamiento.html#descripción-general",
+    "title": "Procesamiento",
+    "section": "",
+    "text": "Portabilidad: Los contenedores incluyen todas las dependencias necesarias (bibliotecas, configuraciones y herramientas), lo que permite que la aplicación se ejecute de manera consistente en cualquier entorno, ya sea local, en servidores o en la nube.\nAislamiento: Cada contenedor se ejecuta de forma independiente y aislada del sistema operativo anfitrión y de otros contenedores, evitando conflictos de dependencias o configuraciones entre aplicaciones.\nControl de versiones: Docker permite versionar las imágenes de contenedores, lo que facilita la reversión a versiones anteriores en caso de problemas. También puedes etiquetar versiones específicas de tu aplicación para un mejor control.",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/02-procesamiento.html#flujo-de-trabajo",
+    "href": "contenido/2020/02-procesamiento.html#flujo-de-trabajo",
+    "title": "Procesamiento",
+    "section": "Flujo de trabajo",
+    "text": "Flujo de trabajo\n\n1. Remuestreo de capas raster\nEste paso se aplica a las capas de entrada tipo raster para homgenizarlas en una misma cuadrícula de referencia. Así, se garantiza que todas las capas raster tengan la misma resolución y los mismos límites.\nPrograma:\nremuestreo.R\nDirectorio de archivos raster de entrada:\n‘datos/originales/raster’ (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartir todos los archivos)\nDirectorio de archivos remuestreados:\nhttps://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados\n\n\n2. Rasterización de capas vectoriales\n\n\n3. Combinación de capas remuestreadas y rasterizadas\n\n\n4. Reclasificación de la capa combinada\n\n\n5. Compresión de la capa reclasificada\n\n\n6. Generación de estadísticas y visualizaciones",
+    "crumbs": [
+      "2020",
+      "Procesamiento"
     ]
   }
 ]

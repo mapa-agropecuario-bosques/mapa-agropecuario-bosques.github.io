@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Mapa de uso agropecuario y bosques - Introducción</title>
+<title>Mapa de uso agropecuario y bosques - Procesamiento</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../contenido/2020/01-datos.html" rel="next">
-<link href="../../contenido/2020/parte-2020.html" rel="prev">
+<link href="../../contenido/2020/01-datos.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -41,9 +40,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -71,11 +67,14 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Buscar"
   }
 }</script>
+<script src="../../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -84,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contenido/2020/parte-2020.html">2020</a></li><li class="breadcrumb-item"><a href="../../contenido/2020/00-index.html">Introducción</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contenido/2020/parte-2020.html">2020</a></li><li class="breadcrumb-item"><a href="../../contenido/2020/02-procesamiento.html">Procesamiento</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contenido/2020/00-index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../contenido/2020/00-index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introducción</span></a>
   </div>
 </li>
@@ -138,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../contenido/2020/02-procesamiento.html" class="sidebar-item-text sidebar-link">
+  <a href="../../contenido/2020/02-procesamiento.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Procesamiento</span></a>
   </div>
 </li>
@@ -149,13 +148,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="2">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#descripción-general" id="toc-descripción-general" class="nav-link active" data-scroll-target="#descripción-general">Descripción general</a></li>
+  <li><a href="#flujo-de-trabajo" id="toc-flujo-de-trabajo" class="nav-link" data-scroll-target="#flujo-de-trabajo">Flujo de trabajo</a>
+  <ul class="collapse">
+  <li><a href="#remuestreo-de-capas-raster" id="toc-remuestreo-de-capas-raster" class="nav-link" data-scroll-target="#remuestreo-de-capas-raster">1. Remuestreo de capas raster</a></li>
+  <li><a href="#rasterización-de-capas-vectoriales" id="toc-rasterización-de-capas-vectoriales" class="nav-link" data-scroll-target="#rasterización-de-capas-vectoriales">2. Rasterización de capas vectoriales</a></li>
+  <li><a href="#combinación-de-capas-remuestreadas-y-rasterizadas" id="toc-combinación-de-capas-remuestreadas-y-rasterizadas" class="nav-link" data-scroll-target="#combinación-de-capas-remuestreadas-y-rasterizadas">3. Combinación de capas remuestreadas y rasterizadas</a></li>
+  <li><a href="#reclasificación-de-la-capa-combinada" id="toc-reclasificación-de-la-capa-combinada" class="nav-link" data-scroll-target="#reclasificación-de-la-capa-combinada">4. Reclasificación de la capa combinada</a></li>
+  <li><a href="#compresión-de-la-capa-reclasificada" id="toc-compresión-de-la-capa-reclasificada" class="nav-link" data-scroll-target="#compresión-de-la-capa-reclasificada">5. Compresión de la capa reclasificada</a></li>
+  <li><a href="#generación-de-estadísticas-y-visualizaciones" id="toc-generación-de-estadísticas-y-visualizaciones" class="nav-link" data-scroll-target="#generación-de-estadísticas-y-visualizaciones">6. Generación de estadísticas y visualizaciones</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contenido/2020/parte-2020.html">2020</a></li><li class="breadcrumb-item"><a href="../../contenido/2020/00-index.html">Introducción</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../contenido/2020/parte-2020.html">2020</a></li><li class="breadcrumb-item"><a href="../../contenido/2020/02-procesamiento.html">Procesamiento</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Introducción</h1>
+<h1 class="title">Procesamiento</h1>
 </div>
 
 
@@ -172,22 +188,79 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>El mapa correspondiente al año 2020 se muestra en la <a href="#fig-mapa-uso-agropecuario-bosques-2020" class="quarto-xref">Figura&nbsp;<span>1</span></a>.</p>
-<div id="fig-mapa-uso-agropecuario-bosques-2020" class="lightbox quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" alt="Mapa de uso agropecuario y bosques de Costa Rica para el año 2020">
+<section id="descripción-general" class="level2">
+<h2 class="anchored" data-anchor-id="descripción-general">Descripción general</h2>
+<p>Los datos de entrada se procesaron en un flujo de trabajo de seis pasos, el cual se esquematiza en la <a href="#fig-procesamiento" class="quarto-xref">Figura&nbsp;<span>1</span></a>.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div id="fig-procesamiento" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mapa-uso-agropecuario-bosques-2020-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="https://raw.githubusercontent.com/mapa-agropecuario-bosques/2020/main/salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="https://raw.githubusercontent.com/mapa-agropecuario-bosques/2020/main/salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Mapa de uso agropecuario y bosques de Costa Rica para el año 2020"></a>
+<div aria-describedby="fig-procesamiento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-procesamiento">flowchart TB
+    subgraph Procesos_1_2 [ ]
+      direction LR
+      A("1. Remuestreo de capas raster")
+      B("2. Rasterización de capas vectoriales")
+    end
+
+    style Procesos_1_2 fill:none,stroke:none
+
+    A --&gt; C["3. Combinación de capas remuestreadas y rasterizadas"]
+    B --&gt; C
+    C --&gt; D["4. Reclasificación de la capa combinada"]
+    D --&gt; E["5. Compresión de la capa reclasificada"]
+    E --&gt; F["6. Generación de estadísticas y visualizaciones"]
+</pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mapa-uso-agropecuario-bosques-2020-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-procesamiento-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;1: Procesamiento de datos.
 </figcaption>
 </figure>
 </div>
-
-
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figura&nbsp;1: Mapa de uso agropecuario y bosques de Costa Rica para el año 2020.</span>
 </div>
+</div>
+<p>Este flujo de trabajo se implementó a través de un conjunto de programas desarrollados en <a href="https://www.r-project.org/">R</a>, un lenguaje de programación orientado al análisis de datos y con amplias capacidades de procesamiento geoespacial. El código fuente de estos programas se encuentra en <a href="https://github.com/mapa-agropecuario-bosques/2020/tree/main/programas">https://github.com/mapa-agropecuario-bosques/2020/tree/main/programas</a>.</p>
+<p>Los programas se ejecutaron en un contenedor <a href="https://www.docker.com/">Docker</a>. El uso de contenedores facilita el desarrollo, la implementación y el mantenimiento de aplicaciones. Entre sus ventajas, pueden mencionarse:</p>
+<ul>
+<li><p><strong>Portabilidad</strong>: Los contenedores incluyen todas las dependencias necesarias (bibliotecas, configuraciones y herramientas), lo que permite que la aplicación se ejecute de manera consistente en cualquier entorno, ya sea local, en servidores o en la nube.</p></li>
+<li><p><strong>Aislamiento</strong>: Cada contenedor se ejecuta de forma independiente y aislada del sistema operativo anfitrión y de otros contenedores, evitando conflictos de dependencias o configuraciones entre aplicaciones.</p></li>
+<li><p><strong>Control de versiones</strong>: Docker permite versionar las imágenes de contenedores, lo que facilita la reversión a versiones anteriores en caso de problemas. También puedes etiquetar versiones específicas de tu aplicación para un mejor control.</p></li>
+</ul>
+<p>En general, los contenedores facilitan la <a href="https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad">reproducibilidad</a> de la solución implementada: al utilizar los mismos datos y los mismos programas se obtienen los mismos resultados. El archivo <a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/Dockerfile">Dockerfile</a> contiene la especificación de los paquetes de R que se necesitan, con sus respectivas versiones.</p>
+<p>Las instrucciones necesarias para el uso del contenedor Docker se incluyen en el archivo <a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/README.md#manejo-del-contenedor-docker">README.md</a> del repositorio GitHub.</p>
+</section>
+<section id="flujo-de-trabajo" class="level2">
+<h2 class="anchored" data-anchor-id="flujo-de-trabajo">Flujo de trabajo</h2>
+<section id="remuestreo-de-capas-raster" class="level3">
+<h3 class="anchored" data-anchor-id="remuestreo-de-capas-raster">1. Remuestreo de capas raster</h3>
+<p>Este paso se aplica a las capas de entrada tipo raster para homgenizarlas en una misma cuadrícula de referencia. Así, se garantiza que todas las capas raster tengan la misma resolución y los mismos límites.</p>
+<p><strong>Programa</strong>:<br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/remuestreo.R">remuestreo.R</a></p>
+<p><strong>Directorio de archivos raster de entrada</strong>:<br>
+‘datos/originales/raster’ (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartir todos los archivos)</p>
+<p><strong>Directorio de archivos remuestreados</strong>:<br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados">https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados</a></p>
+</section>
+<section id="rasterización-de-capas-vectoriales" class="level3">
+<h3 class="anchored" data-anchor-id="rasterización-de-capas-vectoriales">2. Rasterización de capas vectoriales</h3>
+</section>
+<section id="combinación-de-capas-remuestreadas-y-rasterizadas" class="level3">
+<h3 class="anchored" data-anchor-id="combinación-de-capas-remuestreadas-y-rasterizadas">3. Combinación de capas remuestreadas y rasterizadas</h3>
+</section>
+<section id="reclasificación-de-la-capa-combinada" class="level3">
+<h3 class="anchored" data-anchor-id="reclasificación-de-la-capa-combinada">4. Reclasificación de la capa combinada</h3>
+</section>
+<section id="compresión-de-la-capa-reclasificada" class="level3">
+<h3 class="anchored" data-anchor-id="compresión-de-la-capa-reclasificada">5. Compresión de la capa reclasificada</h3>
+</section>
+<section id="generación-de-estadísticas-y-visualizaciones" class="level3">
+<h3 class="anchored" data-anchor-id="generación-de-estadísticas-y-visualizaciones">6. Generación de estadísticas y visualizaciones</h3>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -601,42 +674,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../contenido/2020/parte-2020.html" class="pagination-link" aria-label="2020">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2020</span>
+      <a href="../../contenido/2020/01-datos.html" class="pagination-link" aria-label="Datos">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Datos</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../contenido/2020/01-datos.html" class="pagination-link" aria-label="Datos">
-        <span class="nav-page-text">Datos</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 
