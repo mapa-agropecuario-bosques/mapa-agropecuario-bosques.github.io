@@ -49,6 +49,8 @@ Las instrucciones necesarias para el uso del contenedor Docker se incluyen en el
 
 ## Flujo de trabajo
 
+Para cada uno de los pasos del flujo de trabajo, se brinda una descripción y se especifican el programa correspondiente y los directorios de datos de entrada y salida.
+
 ### 1. Remuestreo de capas raster
 
 Este paso se aplica a las capas de entrada tipo raster para homgenizarlas en una misma cuadrícula de referencia. Así, se garantiza que todas las capas raster tengan la misma resolución y los mismos límites.
@@ -57,7 +59,7 @@ Este paso se aplica a las capas de entrada tipo raster para homgenizarlas en una
 [remuestreo.R](https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/remuestreo.R)
 
 **Directorio de archivos raster de entrada**:  
-'datos/originales/raster' (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartir todos los archivos)
+'datos/originales/raster' (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartirlos todos)
 
 **Directorio de archivos remuestreados**:  
 [https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados](https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados)
