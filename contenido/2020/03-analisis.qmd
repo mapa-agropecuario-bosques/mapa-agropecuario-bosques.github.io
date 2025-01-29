@@ -21,15 +21,75 @@ En esta sección se propone un conjunto de ejercicios de análisis y visualizaci
 
 ## Análisis con R
 
+### Instalación
+
 1. Descargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:  
 [RStudio Desktop](https://posit.co/download/rstudio-desktop/).
-2. Abra en RStudio el proyecto del mapa en:  
-`2020.Rproj`
-3. Instale las bibliotecas necesarias con el siguiente comando en la consola:
+
+### Creación de documento Quarto
+
+1. Abra en RStudio, con **File - Open Project...**, el proyecto del mapa en `2020.Rproj`.
+2. Instale las bibliotecas necesarias con el siguiente comando en la consola:
 `install.packages(c("here", "tidyverse", "plotly", "DT", "sf", "terra", "leaflet"))`
-4. Cree un nuevo documento Quarto con las opciones de menú:  
-**File - New File - Quarto Document...**  
-Guárdelo con el nombre `analisis.qmd` en el directorio raíz.
-5. Agregue el contenido del archivo [analisis.txt](https://raw.githubusercontent.com/mapa-agropecuario-bosques/mapa-agropecuario-bosques.github.io/refs/heads/main/contenido/2020/analisis.txt) (debe añadir las tildes).
-6. Ejecute los bloques de código R uno por uno con el botón **Play** (es el triángulo que está arriba y a la derecha de cada bloque).
-7. Ejecute el documento con el botón **Render**.
+3. Cree un nuevo documento Quarto con las opciones de menú **File - New File - Quarto Document...**. Guárdelo con el nombre `analisis.qmd` en el directorio raíz.
+
+### Generación de una tabla interactiva
+
+1. Agregue a `analisis.qmd` el contenido del archivo [analisis.txt](https://raw.githubusercontent.com/mapa-agropecuario-bosques/mapa-agropecuario-bosques.github.io/refs/heads/main/contenido/2020/analisis.txt) (debe añadir las tildes).
+2. Ejecute los bloques de código R uno por uno con el botón **Play** (es el triángulo que está arriba y a la derecha de cada bloque).
+3. Ejecute el documento con el botón **Render**.
+
+### Generación de un gráfico de barras interactivo
+
+1. Agregue un bloque de código R al documento con el siguiente contenido:
+
+```md
+#| label: grafico-barras
+#| code-fold: show
+#| code-summary: "Generación de gráfico de barras interactivo"
+
+# Gráfico de barras
+areas |>
+  plot_ly(
+    x = ~reorder(clase, -ha),
+    y = ~ha,
+    type = 'bar'
+  ) |>
+    layout(
+      title = "Área por clase",
+      xaxis = list(title = "Clase"),
+      yaxis = list(title = "Ha")
+    )
+```
+
+2. Agregue al documento un gráfico similar al anterior que muestre las áreas en km2.
+
+### Recorte del raster con base en un polígono
+
+1. Copie al directorio principal del proyecto el archivo [cartago.gpkg](https://github.com/mapa-agropecuario-bosques/mapa-agropecuario-bosques.github.io/blob/main/contenido/2020/datos/cartago.gpkg).
+
+2. Visualice la capa raster y la capa vectorial en QGIS.
+
+3. Agregue un bloque de código R al documento con el siguiente contenido:
+
+```md
+#| label: recorte-raster
+#| code-fold: true
+#| code-summary: "Recorte de raster"
+
+# Lectura del vector (archivo geopackage con polígono)
+cartago_sf <- st_read("cartago.gpkg")
+
+# Convertir el objeto sf a 'SpatVector' de terra
+cartago_vect <- vect(cartago_sf)
+
+# Recortar el raster con base en el polígono
+raster_crop <- crop(raster_agro_bosques, cartago_vect)
+
+# Aplicar la máscara para conservar solo los valores dentro del polígono
+raster_cartago <- mask(raster_crop, cartago_vect)
+
+# (Opcional) Guardar el resultado en un archivo raster
+# writeRaster(raster_cartago, "salidas/cartago_clip.tif", overwrite = TRUE)
+```
+

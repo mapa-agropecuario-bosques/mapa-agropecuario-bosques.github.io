@@ -9,10 +9,12 @@ title: "Analisis y visualizacion de datos"
 #| code-fold: true
 #| code-summary: "Carga de bibliotecas"
 
-library(here)
-library(dplyr)
-library(DT)
-library(terra)
+library(here) # manejo de rutas de archivos
+library(dplyr) # manipulacion de datos
+library(DT) # generacion de tablas interactivas
+library(plotly) # generacion de graficos interactivos
+library(sf) # manejo de datos vectoriales
+library(terra) # manejo de datos raster
 ```
 
 ```{r}
