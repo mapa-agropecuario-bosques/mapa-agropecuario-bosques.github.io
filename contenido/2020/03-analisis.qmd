@@ -68,28 +68,29 @@ areas |>
 
 1. Copie al directorio principal del proyecto el archivo [cartago.gpkg](https://github.com/mapa-agropecuario-bosques/mapa-agropecuario-bosques.github.io/blob/main/contenido/2020/datos/cartago.gpkg).
 
-2. Visualice la capa raster y la capa vectorial en QGIS.
+2. Visualice la capa raster de todo el país y la capa vectorial de Cartago en QGIS.
 
-3. Agregue un bloque de código R al documento con el siguiente contenido:
+3. Agregue un bloque de código R al documento con el siguiente contenido para recortar el raster de todo el país con base en el polígono de Cartago:
 
 ```md
 #| label: recorte-raster
 #| code-fold: true
 #| code-summary: "Recorte de raster"
 
-# Lectura del vector (archivo geopackage con polígono)
+# Leer el archivo vectorial en formato sf
 cartago_sf <- st_read("cartago.gpkg")
 
-# Convertir el objeto sf a 'SpatVector' de terra
+# Convertir el objeto sf a SpatVector de terra
 cartago_vect <- vect(cartago_sf)
 
-# Recortar el raster con base en el polígono
-raster_crop <- crop(raster_agro_bosques, cartago_vect)
+# Recortar el raster con base en el objeto SpatVector
+raster_crop <- crop(raster_agropecuario_bosques, cartago_vect)
 
 # Aplicar la máscara para conservar solo los valores dentro del polígono
 raster_cartago <- mask(raster_crop, cartago_vect)
 
-# (Opcional) Guardar el resultado en un archivo raster
-# writeRaster(raster_cartago, "salidas/cartago_clip.tif", overwrite = TRUE)
+# Guardar el resultado en un archivo raster
+writeRaster(raster_cartago, "cartago.tif", overwrite = TRUE)
 ```
 
+4. Genere una tabla y un gráfico de barras que muestren las áreas de cada clase, solo para la provincia de Cartago, y agréguelos al documento Quarto.

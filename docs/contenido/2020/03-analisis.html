@@ -303,27 +303,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="recorte-del-raster-con-base-en-un-polígono">Recorte del raster con base en un polígono</h3>
 <ol type="1">
 <li><p>Copie al directorio principal del proyecto el archivo <a href="https://github.com/mapa-agropecuario-bosques/mapa-agropecuario-bosques.github.io/blob/main/contenido/2020/datos/cartago.gpkg">cartago.gpkg</a>.</p></li>
-<li><p>Visualice la capa raster y la capa vectorial en QGIS.</p></li>
-<li><p>Agregue un bloque de código R al documento con el siguiente contenido:</p></li>
+<li><p>Visualice la capa raster de todo el país y la capa vectorial de Cartago en QGIS.</p></li>
+<li><p>Agregue un bloque de código R al documento con el siguiente contenido para recortar el raster de todo el país con base en el polígono de Cartago:</p></li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode md code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>#| label: recorte-raster</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>#| code-fold: true</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>#| code-summary: "Recorte de raster"</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Lectura del vector (archivo geopackage con polígono)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu"># Leer el archivo vectorial en formato sf</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>cartago_sf &lt;- st_read("cartago.gpkg")</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># Convertir el objeto sf a 'SpatVector' de terra</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu"># Convertir el objeto sf a SpatVector de terra</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>cartago_vect &lt;- vect(cartago_sf)</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Recortar el raster con base en el polígono</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>raster_crop &lt;- crop(raster_agro_bosques, cartago_vect)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># Recortar el raster con base en el objeto SpatVector</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>raster_crop &lt;- crop(raster_agropecuario_bosques, cartago_vect)</span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu"># Aplicar la máscara para conservar solo los valores dentro del polígono</span></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>raster_cartago &lt;- mask(raster_crop, cartago_vect)</span>
 <span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># (Opcional) Guardar el resultado en un archivo raster</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu"># writeRaster(raster_cartago, "salidas/cartago_clip.tif", overwrite = TRUE)</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="fu"># Guardar el resultado en un archivo raster</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>writeRaster(raster_cartago, "cartago.tif", overwrite = TRUE)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="4" type="1">
+<li>Genere una tabla y un gráfico de barras que muestren las áreas de cada clase, solo para la provincia de Cartago, y agréguelos al documento Quarto.</li>
+</ol>
 
 
 </section>
