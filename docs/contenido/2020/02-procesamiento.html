@@ -159,9 +159,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#remuestreo-de-capas-raster" id="toc-remuestreo-de-capas-raster" class="nav-link" data-scroll-target="#remuestreo-de-capas-raster">1. Remuestreo de capas raster</a></li>
   <li><a href="#rasterización-de-capas-vectoriales" id="toc-rasterización-de-capas-vectoriales" class="nav-link" data-scroll-target="#rasterización-de-capas-vectoriales">2. Rasterización de capas vectoriales</a></li>
   <li><a href="#combinación-de-capas-remuestreadas-y-rasterizadas" id="toc-combinación-de-capas-remuestreadas-y-rasterizadas" class="nav-link" data-scroll-target="#combinación-de-capas-remuestreadas-y-rasterizadas">3. Combinación de capas remuestreadas y rasterizadas</a></li>
-  <li><a href="#reclasificación-de-la-capa-combinada" id="toc-reclasificación-de-la-capa-combinada" class="nav-link" data-scroll-target="#reclasificación-de-la-capa-combinada">4. Reclasificación de la capa combinada</a></li>
-  <li><a href="#compresión-de-la-capa-reclasificada" id="toc-compresión-de-la-capa-reclasificada" class="nav-link" data-scroll-target="#compresión-de-la-capa-reclasificada">5. Compresión de la capa reclasificada</a></li>
-  <li><a href="#generación-de-estadísticas-y-visualizaciones" id="toc-generación-de-estadísticas-y-visualizaciones" class="nav-link" data-scroll-target="#generación-de-estadísticas-y-visualizaciones">6. Generación de estadísticas y visualizaciones</a></li>
+  <li><a href="#reclasificación-del-archivo-combinado" id="toc-reclasificación-del-archivo-combinado" class="nav-link" data-scroll-target="#reclasificación-del-archivo-combinado">4. Reclasificación del archivo combinado</a></li>
+  <li><a href="#compresión-del-archivo-reclasificado" id="toc-compresión-del-archivo-reclasificado" class="nav-link" data-scroll-target="#compresión-del-archivo-reclasificado">5. Compresión del archivo reclasificado</a></li>
+  <li><a href="#generación-de-estadísticas" id="toc-generación-de-estadísticas" class="nav-link" data-scroll-target="#generación-de-estadísticas">6. Generación de estadísticas</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -208,9 +208,9 @@ ul.task-list li input[type="checkbox"] {
 
     A --&gt; C["3. Combinación de capas remuestreadas y rasterizadas"]
     B --&gt; C
-    C --&gt; D["4. Reclasificación de la capa combinada"]
-    D --&gt; E["5. Compresión de la capa reclasificada"]
-    E --&gt; F["6. Generación de estadísticas y visualizaciones"]
+    C --&gt; D["4. Reclasificación del archivo combinado"]
+    D --&gt; E["5. Compresión del archivo reclasificado"]
+    E --&gt; F["6. Generación de estadísticas"]
 </pre>
 </div>
 </div>
@@ -236,30 +236,169 @@ Figura&nbsp;1: Procesamiento de datos.
 <p>Para cada uno de los pasos del flujo de trabajo, se brinda una descripción y se especifican el programa correspondiente y los directorios de datos de entrada y salida.</p>
 <section id="remuestreo-de-capas-raster" class="level3">
 <h3 class="anchored" data-anchor-id="remuestreo-de-capas-raster">1. Remuestreo de capas raster</h3>
-<p>Este paso se aplica a las capas de entrada tipo raster para homgenizarlas en una misma cuadrícula de referencia. Así, se garantiza que todas las capas raster tengan la misma resolución y los mismos límites.</p>
-<p><strong>Programa</strong>:<br>
-<a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/remuestreo.R">remuestreo.R</a></p>
-<p><strong>Directorio de archivos raster de entrada</strong>:<br>
-‘datos/originales/raster’ (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartirlos todos)</p>
-<p><strong>Directorio de archivos remuestreados</strong>:<br>
+<p>Este paso se aplicó a las capas de entrada tipo raster para homogenizarlas en una misma cuadrícula de referencia. Así, se garantiza que todas las capas raster tengan la misma resolución y los mismos límites.</p>
+<ol type="1">
+<li>Se rasterizó una capa vectorial del contorno de Costa Rica con una resolución determinada (ej. 10 m). Se excluyó la Isla del Coco. Esta es la cuadrícula de referencia.</li>
+<li>Las capas raster de entrada se remuestrearon (con la función <code>resample()</code>) con base en la cuadrícula de referencia. De esta manera, todas tienen la misma resolución y los mismos límites.</li>
+<li>Las capas raster remuestreadas se recortaron (<em>crop</em>) con base en la capa vectorial del contorno de Costa Rica.</li>
+</ol>
+<section id="programas" class="level4">
+<h4 class="anchored" data-anchor-id="programas">Programas</h4>
+<p><a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/remuestreo.R">remuestreo.R</a></p>
+</section>
+<section id="entradas" class="level4">
+<h4 class="anchored" data-anchor-id="entradas">Entradas</h4>
+<p><strong>Directorio de capas raster originales</strong><br>
+‘datos/originales/raster’ (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartirlos)</p>
+</section>
+<section id="salidas" class="level4">
+<h4 class="anchored" data-anchor-id="salidas">Salidas</h4>
+<p><strong>Directorio de capas remuestreadas</strong><br>
 <a href="https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados">https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados</a></p>
+</section>
 </section>
 <section id="rasterización-de-capas-vectoriales" class="level3">
 <h3 class="anchored" data-anchor-id="rasterización-de-capas-vectoriales">2. Rasterización de capas vectoriales</h3>
+<p>Este paso se aplicó a las capas de entrada tipo vectorial para convertirlas a formato raster de acuerdo con una misma cuadrícula de referencia.</p>
+<ol type="1">
+<li>Se rasterizó una capa vectorial del contorno de Costa Rica con una resolución determinada (ej. 10 m). Se excluyó la Isla del Coco. Esta es la cuadrícula de referencia.</li>
+<li>Se repararon las geometrías no válidas de las capas vectoriales de entrada (con la función <code>st_make_valid()</code>).</li>
+<li>Las capas vectoriales de entrada se rasterizaron (con la función <code>rasterize()</code>) con base en la cuadrícula de referencia. De esta manera, todas tienen la misma resolución y los mismos límites.</li>
+<li>Las capas rasterizadas se reproyectaron al SRS CR05/CRTM05.</li>
+<li>Las capas raster rasterizadas se recortaron (<em>crop</em>) con base en la capa vectorial del contorno de Costa Rica.</li>
+</ol>
+<section id="programa" class="level4">
+<h4 class="anchored" data-anchor-id="programa">Programa</h4>
+<p><a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/rasterizacion.R">rasterizacion.R</a></p>
+</section>
+<section id="entradas-1" class="level4">
+<h4 class="anchored" data-anchor-id="entradas-1">Entradas</h4>
+<p><strong>Directorio de capas vectoriales originales</strong><br>
+‘datos/originales/vectoriales’ (este directorio no se incluyó en el repositorio en GitHub debido a que contiene archivos muy grandes y además no se ha solicitado autorización para compartirlos)</p>
+</section>
+<section id="salidas-1" class="level4">
+<h4 class="anchored" data-anchor-id="salidas-1">Salidas</h4>
+<p><strong>Directorio de capas rasterizadas</strong><br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/rasterizados">https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/rasterizados</a></p>
+</section>
 </section>
 <section id="combinación-de-capas-remuestreadas-y-rasterizadas" class="level3">
 <h3 class="anchored" data-anchor-id="combinación-de-capas-remuestreadas-y-rasterizadas">3. Combinación de capas remuestreadas y rasterizadas</h3>
+<p>En este punto, todas las capas de entrada (raster y vectoriales) deben estar en formato raster y con la misma resolución y límites. Seguidamente, se combinaron (con la función <code>merge()</code>) comenzando con la capa de menor prioridad y sobreponiendo la siguiente capa, hasta procesarlas todas.</p>
+<p>La siguiente lista muestra el resultado de la combinación, comenzando por la capa de mayor prioridad (la que se ve primero en el mapa).</p>
+<ol type="1">
+<li>Red Vial Nacional</li>
+<li>Áreas Silvestres Protegidas</li>
+<li>Registro Nacional de Humedales</li>
+<li>Patrimonio Natural del Estado</li>
+<li>Caña</li>
+<li>Banano</li>
+<li>Café</li>
+<li>Pastos</li>
+<li>Palma</li>
+<li>Piña</li>
+<li>Cultivos</li>
+<li>Cobertura forestal</li>
+<li>Cuerpos de agua (REDD+)</li>
+<li>Pastos (REDD+)</li>
+<li>Cultivos anuales (REDD+)</li>
+<li>Cultivos permanentes (REDD+)</li>
+<li>Páramos (REDD+)</li>
+<li>Bosques (REDD+)</li>
+<li>Suelos desnudos (REDD+)</li>
+<li>Áreas urbanas (REDD+)</li>
+<li>Sin información (REDD+)</li>
+</ol>
+<section id="programa-1" class="level4">
+<h4 class="anchored" data-anchor-id="programa-1">Programa</h4>
+<p><a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/combinacion.R">combinacion.R</a></p>
 </section>
-<section id="reclasificación-de-la-capa-combinada" class="level3">
-<h3 class="anchored" data-anchor-id="reclasificación-de-la-capa-combinada">4. Reclasificación de la capa combinada</h3>
+<section id="entradas-2" class="level4">
+<h4 class="anchored" data-anchor-id="entradas-2">Entradas</h4>
+<p><strong>Directorio de capas remuestreadas</strong><br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados">https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/remuestreados</a></p>
+<p><strong>Directorio de capas rasterizadas</strong><br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/rasterizados">https://github.com/mapa-agropecuario-bosques/2020/tree/main/datos/procesados/rasterizados</a></p>
 </section>
-<section id="compresión-de-la-capa-reclasificada" class="level3">
-<h3 class="anchored" data-anchor-id="compresión-de-la-capa-reclasificada">5. Compresión de la capa reclasificada</h3>
+<section id="salidas-2" class="level4">
+<h4 class="anchored" data-anchor-id="salidas-2">Salidas</h4>
+<p><strong>Archivo combinado</strong><br>
+<code>salidas/uso-agropecuario-bosques-2020.tif</code> (este archivo se sustituyó por su versión comprimida que se explica en el paso 5)</p>
 </section>
-<section id="generación-de-estadísticas-y-visualizaciones" class="level3">
-<h3 class="anchored" data-anchor-id="generación-de-estadísticas-y-visualizaciones">6. Generación de estadísticas y visualizaciones</h3>
+</section>
+<section id="reclasificación-del-archivo-combinado" class="level3">
+<h3 class="anchored" data-anchor-id="reclasificación-del-archivo-combinado">4. Reclasificación del archivo combinado</h3>
+<p>Algunas de las capas del archivo combinado pueden unirse, por lo que en este paso se ejecutó una reclasificación (con la función <code>classify()</code>) que generó el conjunto final de capas:</p>
+<ol type="1">
+<li>Red Vial Nacional</li>
+<li>Áreas Silvestres Protegidas</li>
+<li>Registro Nacional de Humedales</li>
+<li>Patrimonio Natural del Estado</li>
+<li>Caña</li>
+<li>Banano</li>
+<li>Café</li>
+<li>Pastos</li>
+<li>Palma</li>
+<li>Piña</li>
+<li>Cultivos</li>
+<li>Páramos</li>
+<li>Cobertura forestal</li>
+<li>Suelos desnudos</li>
+<li>Áreas urbanas</li>
+<li>Sin información</li>
+</ol>
+<section id="programa-2" class="level4">
+<h4 class="anchored" data-anchor-id="programa-2">Programa</h4>
+<p><a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/reclasificacion.R">reclasificacion.R</a></p>
+</section>
+<section id="entradas-3" class="level4">
+<h4 class="anchored" data-anchor-id="entradas-3">Entradas</h4>
+<p><strong>Archivo combinado</strong><br>
+<code>salidas/uso-agropecuario-bosques-2020.tif</code></p>
+</section>
+<section id="salidas-3" class="level4">
+<h4 class="anchored" data-anchor-id="salidas-3">Salidas</h4>
+<p><strong>Archivo reclasificado</strong><br>
+<code>salidas/uso-agropecuario-bosques-reclasificado-2020.tif</code> (este archivo se sustituyó por su versión comprimida que se explica en el paso 5)</p>
+</section>
+</section>
+<section id="compresión-del-archivo-reclasificado" class="level3">
+<h3 class="anchored" data-anchor-id="compresión-del-archivo-reclasificado">5. Compresión del archivo reclasificado</h3>
+<p>Para reducir su tamaño, el archivo reclasificado se comprimió (con el comando <code>gdal_translate</code>) de la biblioteca <a href="https://gdal.org/">GDAL</a>.</p>
+<section id="programa-3" class="level4">
+<h4 class="anchored" data-anchor-id="programa-3">Programa</h4>
+<p><a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/compresion-salidas.sh">compresion-salidas.sh</a></p>
+</section>
+<section id="entradas-4" class="level4">
+<h4 class="anchored" data-anchor-id="entradas-4">Entradas</h4>
+<p><strong>Archivo reclasificado</strong><br>
+<code>salidas/uso-agropecuario-bosques-reclasificado-2020.tif</code></p>
+</section>
+<section id="salidas-4" class="level4">
+<h4 class="anchored" data-anchor-id="salidas-4">Salidas</h4>
+<p><strong>Archivo comprimido</strong><br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif">https://github.com/mapa-agropecuario-bosques/2020/blob/main/salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif</a></p>
+</section>
+</section>
+<section id="generación-de-estadísticas" class="level3">
+<h3 class="anchored" data-anchor-id="generación-de-estadísticas">6. Generación de estadísticas</h3>
+<p>En este último paso, se genera un archivo CSV con estadísticas relacionadas con el área ocupada por cada clase de cobertura.</p>
+<section id="programa-4" class="level4">
+<h4 class="anchored" data-anchor-id="programa-4">Programa</h4>
+<p><a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/programas/generacion-estadisticas.R">generacion-estadisticas.R</a></p>
+</section>
+<section id="entradas-5" class="level4">
+<h4 class="anchored" data-anchor-id="entradas-5">Entradas</h4>
+<p><strong>Archivo comprimido</strong><br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif">https://github.com/mapa-agropecuario-bosques/2020/blob/main/salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif</a></p>
+</section>
+<section id="salidas-5" class="level4">
+<h4 class="anchored" data-anchor-id="salidas-5">Salidas</h4>
+<p><strong>Archivo con estadísticas</strong><br>
+<a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/salidas/estadisticas.csv">https://github.com/mapa-agropecuario-bosques/2020/blob/main/salidas/estadisticas.csv</a></p>
 
 
+</section>
 </section>
 </section>
 
