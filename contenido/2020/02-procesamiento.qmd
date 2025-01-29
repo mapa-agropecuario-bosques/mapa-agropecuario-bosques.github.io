@@ -1,16 +1,5 @@
 # Procesamiento {.unnumbered}
 
-```{r}
-#| label: carga-paquetes
-#| echo: false
-#| message: false
-#| warning: false
-
-library(DT)
-```
-
-## Descripción general
-
 Los datos de entrada se procesaron en un flujo de trabajo de seis pasos, el cual se esquematiza en la @fig-procesamiento.
 
 ```{mermaid}
