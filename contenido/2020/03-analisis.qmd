@@ -22,4 +22,9 @@ En esta sección se propone un conjunto de ejercicios de análisis y visualizaci
 ## Análisis con R
 
 1. Descargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:  
-[RStudio Desktop](https://posit.co/download/rstudio-desktop/)
+[RStudio Desktop](https://posit.co/download/rstudio-desktop/).
+2. Abra en RStudio el proyecto del mapa en:  
+`2020.Rproj`
+3. Instale las bibliotecas necesarias con el siguiente comando en la consola:
+`install.packages(c("here", "tidyverse", "plotly" "DT", "sf", "terra"))`
+
