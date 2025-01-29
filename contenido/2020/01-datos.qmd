@@ -34,9 +34,9 @@ datos <- data.frame(
   Fuente = c(
     "SINAC (SNIT)", "SINAC", "ICAFE",
     "LAICA", "MOCUPP-PRIAS (SNIT)", "MOCUPP-UCR (SNIT)",
-    "MOCUPP-UCR (SNIT)", "MOCUPP-PRIAS (SNIT)", "???",
-    "???", "FONAFIFO", "SINAC (SNIT)",
-    "???", "SINAC (SNIT)"
+    "MOCUPP-UCR (SNIT)", "MOCUPP-PRIAS (SNIT)", "IGN",
+    "", "Secretaría REDD+", "SINAC (SNIT)",
+    "", "SINAC (SNIT)"
   ),  
   Tipo = c(
     "Vectorial", "Vectorial", "Vectorial",
@@ -49,7 +49,7 @@ datos <- data.frame(
     "", "", "",
     "Se generó al fusionar archivos de varias regiones", "", "",
     "", "", "",
-    "", "Contiene varias capas (zonas urbanas, suelo desnudo, etc.)", "",
+    "", "Contiene varias capas (zonas urbanas, suelo desnudo, bosques, cuerpos de agua, etc.)", "",
     "", ""
   )
 )
