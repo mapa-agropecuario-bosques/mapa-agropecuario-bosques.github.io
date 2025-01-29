@@ -26,7 +26,7 @@ En esta sección se propone un conjunto de ejercicios de análisis y visualizaci
 1. Descargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:  
 [RStudio Desktop](https://posit.co/download/rstudio-desktop/).
 
-### Creación de documento Quarto
+### Creación de un documento Quarto
 
 1. Abra en RStudio, con **File - Open Project...**, el proyecto del mapa en `2020.Rproj`.
 2. Instale las bibliotecas necesarias con el siguiente comando en la consola:
