@@ -223,7 +223,7 @@
     "href": "contenido/2020/03-analisis.html#análisis-con-r",
     "title": "Análisis y visualización",
     "section": "Análisis con R",
-    "text": "Análisis con R\n\nDescargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:\nRStudio Desktop.\nAbra en RStudio el proyecto del mapa en:\n2020.Rproj\nInstale las bibliotecas necesarias con el siguiente comando en la consola: install.packages(c(\"here\", \"tidyverse\", \"plotly\" \"DT\", \"sf\", \"terra\"))",
+    "text": "Análisis con R\n\nDescargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:\nRStudio Desktop.\nAbra en RStudio el proyecto del mapa en:\n2020.Rproj\nInstale las bibliotecas necesarias con el siguiente comando en la consola: install.packages(c(\"here\", \"tidyverse\", \"plotly\", \"DT\", \"sf\", \"terra\", \"leaflet\"))\nCree un nuevo documento Quarto con las opciones de menú:\nFile - New File - Quarto Document…\nGuárdelo con el nombre analisis.qmd en el directorio raíz.\nAgregue el contenido del archivo analisis.txt (debe añadir las tildes).\nEjecute el documento con el botón Render.",
     "crumbs": [
       "2020",
       "Análisis y visualización"

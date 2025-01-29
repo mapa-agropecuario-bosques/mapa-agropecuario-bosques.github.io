@@ -26,5 +26,9 @@ En esta sección se propone un conjunto de ejercicios de análisis y visualizaci
 2. Abra en RStudio el proyecto del mapa en:  
 `2020.Rproj`
 3. Instale las bibliotecas necesarias con el siguiente comando en la consola:
-`install.packages(c("here", "tidyverse", "plotly" "DT", "sf", "terra"))`
-
+`install.packages(c("here", "tidyverse", "plotly", "DT", "sf", "terra", "leaflet"))`
+4. Cree un nuevo documento Quarto con las opciones de menú:  
+**File - New File - Quarto Document...**  
+Guárdelo con el nombre `analisis.qmd` en el directorio raíz.
+5. Agregue el contenido del archivo [analisis.txt](analisis.txt) (debe añadir las tildes).
+6. Ejecute el documento con el botón **Render**.

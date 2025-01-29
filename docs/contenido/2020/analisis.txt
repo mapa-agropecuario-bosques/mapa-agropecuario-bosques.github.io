@@ -1,0 +1,100 @@
+---
+title: "Analisis y visualizacion de datos"
+---
+
+```{r}
+#| label: carga-paquetes
+#| warning: false
+#| message: false
+#| code-fold: true
+#| code-summary: "Carga de bibliotecas"
+
+library(here)
+library(dplyr)
+library(DT)
+library(terra)
+```
+
+```{r}
+#| label: lectura-datos
+#| code-fold: true
+#| code-summary: "Lectura de datos"
+
+# Lectura del archivo raster de capa de uso agropecuario y bosques
+raster_agropecuario_bosques <- 
+  rast(here("salidas", "uso-agropecuario-bosques-2020-reclasificado-comprimido.tif"))
+```
+
+```{r}
+#| label: calculo-frecuencias
+#| code-fold: true
+#| code-summary: "Calculo de áreas"
+
+# Cantidad de celdas para cada valor del raster
+areas <- freq(raster_agropecuario_bosques)
+
+# Adicion de columna de etiqueta de las clases
+areas <- areas |> mutate(
+  clase = case_when(
+    value == 1 ~ "Red vial",
+    value == 2 ~ "Areas Silvestres Protegidas",
+    value == 3 ~ "Humedales",
+    value == 4 ~ "Patrimonio Natural del Estado",
+    value == 5 ~ "Caña",
+    value == 6 ~ "Banano",
+    value == 7 ~ "Cafe",
+    value == 8 ~ "Pasto",
+    value == 9 ~ "Palma",
+    value == 10 ~ "Piña",
+    value == 11 ~ "Cultivos",
+    value == 12 ~ "Paramo",
+    value == 13 ~ "Cobertura forestal",
+    value == 14 ~ "Suelo desnudo",
+    value == 15 ~ "Zonas urbanas",
+    value == 16 ~ "Sin informacion"
+  )
+)
+
+# Borrado de la columna "layer"
+areas <- areas |>
+  select(
+    codigo = value,
+    clase,
+    celdas = count
+  )
+
+# Adicion de columnas de m2, ha y km2
+areas <- areas |>
+  mutate(
+    m2 = celdas * 100,
+    ha = m2 / 10000,
+    km2 = m2 / 1000000
+  )
+
+# Conteo del total de celdas
+total_celdas <- sum(areas$celdas)
+
+# Adicion de columna de proporcion
+areas <- areas |>
+  mutate(
+    proporcion = celdas / total_celdas
+  )
+```
+
+```{r}
+#| label: generacion-tabla
+#| code-fold: show
+#| code-summary: "Generacion de tabla"
+
+# Tabla
+areas |>
+  datatable(
+    rownames = FALSE,
+    options = list(
+      pageLength = 10,    # Numero de filas a mostrar por página
+      autoWidth = TRUE,    # Ajuste automatico del ancho de las columnas,
+      language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json')
+    ),
+    caption = 'Areas por clase de uso agropecuario y bosque'
+  )
+```
