@@ -157,6 +157,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#exploración-y-descarga-del-repositorio-en-github" id="toc-exploración-y-descarga-del-repositorio-en-github" class="nav-link active" data-scroll-target="#exploración-y-descarga-del-repositorio-en-github">Exploración y descarga del repositorio en GitHub</a></li>
+  <li><a href="#visualización-del-mapa-en-qgis" id="toc-visualización-del-mapa-en-qgis" class="nav-link" data-scroll-target="#visualización-del-mapa-en-qgis">Visualización del mapa en QGIS</a></li>
+  <li><a href="#análisis-con-r" id="toc-análisis-con-r" class="nav-link" data-scroll-target="#análisis-con-r">Análisis con R</a></li>
   </ul>
 </nav>
     </div>
@@ -186,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="exploración-y-descarga-del-repositorio-en-github" class="level2">
 <h2 class="anchored" data-anchor-id="exploración-y-descarga-del-repositorio-en-github">Exploración y descarga del repositorio en GitHub</h2>
 <ol type="1">
-<li>Navegue al repositorio en GitHub del mapa de uso agropecuario y bosques 2020 en:<br>
+<li>Navegue al repositorio en GitHub del proyecto del mapa de uso agropecuario y bosques 2020 en:<br>
 <a href="https://github.com/mapa-agropecuario-bosques/2020">https://github.com/mapa-agropecuario-bosques/2020</a>.</li>
 <li>Observe la ubicación y el contenido de los directorios de:
 <ul>
@@ -194,8 +196,23 @@ ul.task-list li input[type="checkbox"] {
 <li>Programas.</li>
 <li>Salidas.</li>
 </ul></li>
-<li>Descargue el contenido repositorio en formato ZIP en:<br>
-<a href="https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip">https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip</a></li>
+<li>Descargue el contenido del repositorio en formato ZIP de <a href="https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip">https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip</a> y descomprímalo en su computadora (el archivo ZIP tiene un tamaño aproximado de 400 MB y el directorio que se genera al descomprimirlo tiene un tamaño aproximado de 1.35 GB). Puede renombrar el directorio y colocarlo en cualquier ubicación de su disco en donde tenga derechos de lectura y escritura.</li>
+</ol>
+</section>
+<section id="visualización-del-mapa-en-qgis" class="level2">
+<h2 class="anchored" data-anchor-id="visualización-del-mapa-en-qgis">Visualización del mapa en QGIS</h2>
+<ol type="1">
+<li>Abra y visualice en <a href="https://qgis.org/">QGIS</a> el mapa final, el cual se encuentra en la siguiente ruta del directorio del proyecto:<br>
+<code>salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif</code></li>
+<li>Instale la extensión QuickMapServices y agregue una capa base (ej. OpenStreetMap).</li>
+<li>Modifique el archivo de estilos <code>salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.qml</code> para cambiar los colores y otras propiedades del mapa. Aplique los cambios en la sección <strong>Simbología</strong> de la interfaz de QGIS.</li>
+</ol>
+</section>
+<section id="análisis-con-r" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-con-r">Análisis con R</h2>
+<ol type="1">
+<li>Descargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:<br>
+<a href="https://posit.co/download/rstudio-desktop/">RStudio Desktop</a></li>
 </ol>
 
 

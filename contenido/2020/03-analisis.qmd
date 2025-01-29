@@ -4,11 +4,22 @@ En esta sección se propone un conjunto de ejercicios de análisis y visualizaci
 
 ## Exploración y descarga del repositorio en GitHub
 
-1. Navegue al repositorio en GitHub del mapa de uso agropecuario y bosques 2020 en:  
+1. Navegue al repositorio en GitHub del proyecto del mapa de uso agropecuario y bosques 2020 en:  
 [https://github.com/mapa-agropecuario-bosques/2020](https://github.com/mapa-agropecuario-bosques/2020).
 2. Observe la ubicación y el contenido de los directorios de:
     - Datos.
     - Programas.
     - Salidas.
-3. Descargue el contenido repositorio en formato ZIP en:  
-[https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip](https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip)
+3. Descargue el contenido del repositorio en formato ZIP de [https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip](https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip) y descomprímalo en su computadora (el archivo ZIP tiene un tamaño aproximado de 400 MB y el directorio que se genera al descomprimirlo tiene un tamaño aproximado de 1.35 GB). Puede renombrar el directorio y colocarlo en cualquier ubicación de su disco en donde tenga derechos de lectura y escritura.
+
+## Visualización del mapa en QGIS
+
+1. Abra y visualice en [QGIS](https://qgis.org/) el mapa final, el cual se encuentra en la siguiente ruta del directorio del proyecto:  
+`salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif`
+2. Instale la extensión QuickMapServices y agregue una capa base (ej. OpenStreetMap).
+3. Modifique el archivo de estilos `salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.qml` para cambiar los colores y otras propiedades del mapa. Aplique los cambios en la sección **Simbología** de la interfaz de QGIS.
+
+## Análisis con R
+
+1. Descargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:  
+[RStudio Desktop](https://posit.co/download/rstudio-desktop/)

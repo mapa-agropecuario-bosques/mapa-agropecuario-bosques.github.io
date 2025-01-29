@@ -190,7 +190,40 @@
     "href": "contenido/2020/03-analisis.html#exploración-y-descarga-del-repositorio-en-github",
     "title": "Análisis y visualización",
     "section": "",
-    "text": "Navegue al repositorio en GitHub del mapa de uso agropecuario y bosques 2020 en:\nhttps://github.com/mapa-agropecuario-bosques/2020.\nObserve la ubicación y el contenido de los directorios de:\n\nDatos.\nProgramas.\nSalidas.\n\nDescargue el contenido repositorio en formato ZIP en:\nhttps://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip",
+    "text": "Navegue al repositorio en GitHub del proyecto del mapa de uso agropecuario y bosques 2020 en:\nhttps://github.com/mapa-agropecuario-bosques/2020.\nObserve la ubicación y el contenido de los directorios de:\n\nDatos.\nProgramas.\nSalidas.\n\nDescargue el contenido del repositorio en formato ZIP de https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip y descomprímalo en su computadora (el archivo ZIP tiene un tamaño aproximado de 400 MB y el directorio que se genera al descomprimirlo tiene un tamaño aproximado de 1.35 GB). Puede renombrar el directorio y colocarlo en cualquier ubicación de su disco en donde tenga derechos de lectura y escritura.",
+    "crumbs": [
+      "2020",
+      "Análisis y visualización"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/03-analisis.html#visualización-del-mapa",
+    "href": "contenido/2020/03-analisis.html#visualización-del-mapa",
+    "title": "Análisis y visualización",
+    "section": "Visualización del mapa",
+    "text": "Visualización del mapa\n\nAbra y visualice en QGIS el mapa final, el cual se encuentra en la siguiente ruta del directorio del proyecto:\nsalidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif\nInstale la extensión QuickMapServices y agregue una capa base (ej. OpenStreetMap).\nModifique el archivo de estilos salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.qml para cambiar los colores y otras propiedades del mapa. Aplique los cambios en la sección Simbología de la interfaz de QGIS.",
+    "crumbs": [
+      "2020",
+      "Análisis y visualización"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/03-analisis.html#visualización-del-mapa-en-qgis",
+    "href": "contenido/2020/03-analisis.html#visualización-del-mapa-en-qgis",
+    "title": "Análisis y visualización",
+    "section": "Visualización del mapa en QGIS",
+    "text": "Visualización del mapa en QGIS\n\nAbra y visualice en QGIS el mapa final, el cual se encuentra en la siguiente ruta del directorio del proyecto:\nsalidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.tif\nInstale la extensión QuickMapServices y agregue una capa base (ej. OpenStreetMap).\nModifique el archivo de estilos salidas/uso-agropecuario-bosques-2020-reclasificado-comprimido.qml para cambiar los colores y otras propiedades del mapa. Aplique los cambios en la sección Simbología de la interfaz de QGIS.",
+    "crumbs": [
+      "2020",
+      "Análisis y visualización"
+    ]
+  },
+  {
+    "objectID": "contenido/2020/03-analisis.html#análisis-con-r",
+    "href": "contenido/2020/03-analisis.html#análisis-con-r",
+    "title": "Análisis y visualización",
+    "section": "Análisis con R",
+    "text": "Análisis con R\n\nDescargue el interpretador de R y el entorno de desarrollo integrado RStudio del siguiente enlace:\nRStudio Desktop",
     "crumbs": [
       "2020",
       "Análisis y visualización"
