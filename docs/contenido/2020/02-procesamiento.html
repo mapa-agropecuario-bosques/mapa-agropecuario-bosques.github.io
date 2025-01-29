@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../contenido/2020/03-analisis.html" rel="next">
 <link href="../../contenido/2020/01-datos.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -141,6 +142,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Procesamiento</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../contenido/2020/03-analisis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Procesamiento</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -153,8 +160,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#descripción-general" id="toc-descripción-general" class="nav-link active" data-scroll-target="#descripción-general">Descripción general</a></li>
-  <li><a href="#flujo-de-trabajo" id="toc-flujo-de-trabajo" class="nav-link" data-scroll-target="#flujo-de-trabajo">Flujo de trabajo</a>
+  <li><a href="#flujo-de-trabajo" id="toc-flujo-de-trabajo" class="nav-link active" data-scroll-target="#flujo-de-trabajo">Flujo de trabajo</a>
   <ul class="collapse">
   <li><a href="#remuestreo-de-capas-raster" id="toc-remuestreo-de-capas-raster" class="nav-link" data-scroll-target="#remuestreo-de-capas-raster">1. Remuestreo de capas raster</a></li>
   <li><a href="#rasterización-de-capas-vectoriales" id="toc-rasterización-de-capas-vectoriales" class="nav-link" data-scroll-target="#rasterización-de-capas-vectoriales">2. Rasterización de capas vectoriales</a></li>
@@ -188,9 +194,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="descripción-general" class="level2">
-<h2 class="anchored" data-anchor-id="descripción-general">Descripción general</h2>
-<p>Los datos de entrada se procesaron en un flujo de trabajo de seis pasos, el cual se esquematiza en la <a href="#fig-procesamiento" class="quarto-xref">Figura&nbsp;<span>1</span></a>.</p>
+<p>Los datos de entrada se procesaron en un flujo de trabajo de seis pasos, el cual se esquematiza en la <a href="03-analisis.html#fig-procesamiento" class="quarto-xref">Figura&nbsp;<span>1</span></a>.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div id="fig-procesamiento" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -230,7 +234,6 @@ Figura&nbsp;1: Procesamiento de datos.
 </ul>
 <p>En general, los contenedores facilitan la <a href="https://es.wikipedia.org/wiki/Reproducibilidad_y_repetibilidad">reproducibilidad</a> de la solución implementada: al utilizar los mismos datos y los mismos programas se obtienen los mismos resultados. El archivo <a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/Dockerfile">Dockerfile</a> contiene la especificación de los paquetes de R que se necesitan, con sus respectivas versiones.</p>
 <p>Las instrucciones necesarias para el uso del contenedor Docker se incluyen en el archivo <a href="https://github.com/mapa-agropecuario-bosques/2020/blob/main/README.md#manejo-del-contenedor-docker">README.md</a> del repositorio GitHub.</p>
-</section>
 <section id="flujo-de-trabajo" class="level2">
 <h2 class="anchored" data-anchor-id="flujo-de-trabajo">Flujo de trabajo</h2>
 <p>Para cada uno de los pasos del flujo de trabajo, se brinda una descripción y se especifican el programa correspondiente y los directorios de datos de entrada y salida.</p>
@@ -819,6 +822,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../../contenido/2020/03-analisis.html" class="pagination-link" aria-label="Procesamiento">
+        <span class="nav-page-text">Procesamiento</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

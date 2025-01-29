@@ -1,0 +1,14 @@
+# Análisis y visualización {.unnumbered}
+
+En esta sección se propone un conjunto de ejercicios de análisis y visualización de datos.
+
+## Exploración y descarga del repositorio en GitHub
+
+1. Navegue al repositorio en GitHub del mapa de uso agropecuario y bosques 2020 en:  
+[https://github.com/mapa-agropecuario-bosques/2020](https://github.com/mapa-agropecuario-bosques/2020).
+2. Observe la ubicación y el contenido de los directorios de:
+    - Datos.
+    - Programas.
+    - Salidas.
+3. Descargue el contenido repositorio en formato ZIP en:  
+[https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip](https://github.com/mapa-agropecuario-bosques/2020/archive/refs/heads/main.zip)
