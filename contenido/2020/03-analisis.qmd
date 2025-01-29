@@ -30,5 +30,6 @@ En esta sección se propone un conjunto de ejercicios de análisis y visualizaci
 4. Cree un nuevo documento Quarto con las opciones de menú:  
 **File - New File - Quarto Document...**  
 Guárdelo con el nombre `analisis.qmd` en el directorio raíz.
-5. Agregue el contenido del archivo [analisis.txt](analisis.txt) (debe añadir las tildes).
-6. Ejecute el documento con el botón **Render**.
+5. Agregue el contenido del archivo [analisis.txt](https://raw.githubusercontent.com/mapa-agropecuario-bosques/mapa-agropecuario-bosques.github.io/refs/heads/main/contenido/2020/analisis.txt) (debe añadir las tildes).
+6. Ejecute los bloques de código R uno por uno con el botón **Play** (es el triángulo que está arriba y a la derecha de cada bloque).
+7. Ejecute el documento con el botón **Render**.
